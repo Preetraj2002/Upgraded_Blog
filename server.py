@@ -11,14 +11,14 @@ all_post=response.json()
 def send_mail(name,email,phno,mssg):
     sender = os.environ["SMTP_sender"]
     receiver = os.environ["SMTP_receiver"]
-    password = os.environ["SMTP_pass"]
+    pswd = os.environ["SMTP_pass"]
     port_no = 587
     smtp_url = "smtp.gmail.com"
 
     mail = smtplib.SMTP(smtp_url, port_no)
     mail.ehlo()
     mail.starttls()
-    mail.login(sender, password)
+    mail.login(sender, pswd)
 
     header = f"To:{receiver}\nSubject:Message\n\n"
     content = f"Name:{name}\n" \
